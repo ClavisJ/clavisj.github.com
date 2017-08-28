@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> 【译】Swift2的新特性 · ClavisBlog </title>
+    <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="browsermode" content="application">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ClavisBlog">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="msapplication-navbutton-color" content="#666666">
+<meta name= "format-detection" content="telephone=no" />
+<meta name="keywords" content="nlvi, Nlvi" />
+
+
+
+
+
+    <meta name="keywords" content="swift2, Nlvi" />
+
+<link rel="stylesheet" href="/style/style.css" type="text/css">
+<script src="/script/jquery.min.js" type="text/javascript"></script>
+<script>
+    var CONFIG = {
+        title: "ClavisBlog",
+        author: "Clavis JJ",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css" type="text/css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css" type="text/css">
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud-mask"></div>  
+<div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        <a href="/tags/swift2/" style="font-size: 14px;">swift2</a>
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">ClavisBlog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>归档</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/read">
+                    <span>读书</span>
+                    
+                        <span class="menu-item-label">read</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+</header>
+<div class="mobile-header">
+    <div class="mobile-header-body">
+        <div class="mobile-header-list">
+            
+            
+                <div class="mobile-nav-item">
+                    <a href="/">
+                        <span>文章</span>
+                        
+                            <span class="menu-item-label">article</span>
+                        
+                    </a>
+                </div>
+            
+            
+            
+                <div class="mobile-nav-item">
+                    <a href="/archives">
+                        <span>归档</span>
+                        
+                            <span class="menu-item-label">archives</span>
+                        
+                    </a>
+                </div>
+            
+            
+            
+                <div class="mobile-nav-item">
+                    <a href="/read">
+                        <span>读书</span>
+                        
+                            <span class="menu-item-label">read</span>
+                        
+                    </a>
+                </div>
+            
+            
+        </div>
+    </div>
+    <div class="mobile-header-nav">
+        <div class="mobile-header-item" id="mobile-left">
+            <div class="header-menu-item">
+                <span class="header-menu-line"></span>
+            </div>
+        </div>
+        <h1 class="mobile-header-title">
+            <a href="/">ClavisBlog</a>
+        </h1>
+        <div class="mobile-header-item"></div>
+    </div>
+</div>
+
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2016年2月22日</span>
+                
+                
+                    <span class="post-category"><a href="/categories/iOS/">iOS</a></span>
+                
+                
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                【译】Swift2的新特性
+            
+            </h1>
+            
+                
+                    <div class="post-tags syuanpi riseIn-light back-3">
+                    
+                        <a href="/tags/swift2/">swift2</a>
+                    
+                    </div>
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <blockquote>
+<p>作者 Greg Heo, <a href="http://www.raywenderlich.com/108522/whats-new-in-swift-2" target="_blank" rel="external">原文链接</a>，原文日期：2015/6/12</p>
+<p>译者：Clavis 校对：Felicity</p>
+</blockquote>
+<p>我们在WWDC上了解到Swift团队的思路并没有和我们一样被互相传送的粗燥绘画所扰乱，他们在Swift2上下了很多功夫。</p>
+<p>我们马上就会有大量的关于Swift2的纸质和视频教程了，与此同时，我将突出展示一些最振奋人心的改变，因此你能做好在秋季就转移到Swift2的准备。</p>
+<a id="more"></a>
+<h2 id="错误处理">错误处理</h2><p>就如Ray在他的<a href="http://www.raywenderlich.com/108379/wwdc-2015-initial-impressions" target="_blank" rel="external">WWDC 2015 Initial Impressions</a>文章上面提到的那样，错误处理将会在Swift2中改版。我们将使用一个用于异常处理并且看起来更加小的新系统来替代NSError对象和双指针。</p>
+<p>也许你会比较熟悉这样的代码：</p>
+<pre><code><span class="keyword">if</span> drinkWithError(<span class="constant">nil</span>) {
+  <span class="built_in">print</span>(<span class="string">"Could not drink beer! :["</span>)
+  <span class="keyword">return</span>
+}
+</code></pre><p>通常在Cocoa中，你能在这里传入一个<code>NSError</code>对象（Swift中的一个<code>inout</code>参数）的引用，这个方法将会分配一个变量。然而，问题是你能在这里通过一个nil对象去完全忽视这个错误；或者，你能通过一个NSError但是从来没有检测过他。</p>
+<p>Swift2对错误检测添加了一些额外的安全性，使用throws关键字去<br>明确那些可以抛出异常的方法和函数。之后你就有do，try，和catch关键字在异常抛出的时候调用一些方法:</p>
+<pre><code><span class="comment">// 1</span>
+<span class="class"><span class="keyword">enum</span> <span class="title">DrinkError</span>: <span class="title">ErrorType</span> </span>{
+  <span class="keyword">case</span> <span class="type">NoBeerRemainingError</span>
+}
+
+<span class="comment">// 2</span>
+<span class="func"><span class="keyword">func</span> <span class="title">drinkWithError</span><span class="params">()</span></span> throws {
+  <span class="keyword">if</span> beer.isAvailable() {
+    <span class="comment">// party!</span>
+  } <span class="keyword">else</span> {
+    <span class="comment">// 3</span>
+    throw <span class="type">DrinkError</span>.<span class="type">NoBeerRemainingError</span>
+  }
+}
+
+<span class="func"><span class="keyword">func</span> <span class="title">tryToDrink</span><span class="params">()</span></span> {
+  <span class="comment">// 4</span>
+  <span class="keyword">do</span> {
+    try drinkWithError()
+  } catch {
+    <span class="built_in">print</span>(<span class="string">"Could not drink beer! :["</span>)
+    <span class="keyword">return</span>
+  }
+}
+</code></pre><p>这里有些需要强调的事情：<br>1.去创建一个抛出的错误，可以简单的创建一个ErrorType的派生枚举。<br>2.你需要去使用throws关键字去标记任意可以抛出异常的方法。<br>3.抛出的异常将会在section4获取。<br>4.现在的异常处理替代了try代码块，从其他语言的开发者也许对现在的异常处理更加熟悉，在抛出异常的do block里面，你能包含任何想要的代码。之后给每个方法调用添加key关键字就能抛出异常了。</p>
+<p>这个新的语法是非常轻量级的并且可读性好的。任意目前使用了NSError的 API现在都可以使用这个系统，因此我们能看到更多使用这个新语法的。</p>
+<p><img src="http://cdn1.raywenderlich.com/wp-content/uploads/2015/06/throw-all-the-things.jpg" alt=""></p>
+<h2 id="绑定">绑定</h2><p>使用Swift1.2，我们丢失了“厄运金字塔”和获得在一行中测试绑定多个可选值的能力:</p>
+<pre><code><span class="keyword">if</span> <span class="keyword">let</span> pants = pants, frog = frog {
+  <span class="comment">// good stuff here!</span>
+}
+</code></pre><p>这句代码能正常运行，但问题是对于一些人来说更优美的代码路径是所有的可选值都有一些缩进。这就意味着当错误条件排除在外的时候，你需要去看主线部分内部的代码块缩进。</p>
+<p>我们希望有什么方法可以检查那些可选值没有值的情况，刚好现在就有这样的方法！那就是Swift2中提供的guard语句：</p>
+<pre><code>guard <span class="keyword">let</span> pants = pants, frog = frog <span class="keyword">else</span> {
+  <span class="comment">// sorry, no frog pants here :[</span>
+  <span class="keyword">return</span>
+} 
+<span class="comment">// at this point, frog and pants are both unwrapped and bound!</span>
+</code></pre><p>使用guard意味着你能执行值绑定并且在条件不满足的时候在else中提供一个要运行的代码块。接着，你能继续在这个分支下继续并且frog和pants的值将有值并且不再越界。</p>
+<p>有了guard语法之后，你能更加明确你真正期望的状态，而不是去检查错误的分支，我们的代码也应该更加清楚。</p>
+<p>Note:如果你还是对为什么guard语句比if-else语句更加好用而感到困惑，查看这篇Swift团队成员<a href="http://www.raywenderlich.com/u/ecerney" target="_blank" rel="external">Eric Cerney</a>的文章<a href="http://ericcerney.com/swift-guard-statement/" target="_blank" rel="external">Swift guard statement</a>吧。</p>
+<h2 id="协议扩展">协议扩展</h2><p>面向对象？函数式？还有一个要加在之前的就是面向协议编程的Swift语言！</p>
+<p>在Swift1中，协议更像是一个给类，结构体或者枚举明确要遵循的一系列属性和方法的接口。</p>
+<p>但是在Swift2中，你能扩展协议，并且给属性方法添加上默认的实现。你现在已经能给类和结构体添加新的属性和方法了，比如给String和Array添加新的方法，但是使用协议来添加这些将会更轻松一些。</p>
+<pre><code><span class="class"><span class="keyword">extension</span> <span class="title">CustomStringConvertible</span> </span>{
+  <span class="keyword">var</span> shoutyDescription: <span class="type">String</span> {
+    <span class="keyword">return</span> <span class="string">"<span class="subst">\(<span class="keyword">self</span>.description.uppercaseString)</span>!!!"</span>
+  }
+}
+
+<span class="keyword">let</span> greetings = [<span class="string">"Hello"</span>, <span class="string">"Hi"</span>, <span class="string">"Yo yo yo"</span>]
+
+<span class="comment">// prints ["Hello", "Hi", "Yo yo yo"]</span>
+<span class="built_in">print</span>(<span class="string">"<span class="subst">\(greetings.description)</span>"</span>)
+
+<span class="comment">// prints [HELLO, HI, YO YO YO]!!!</span>
+<span class="built_in">print</span>(<span class="string">"<span class="subst">\(greetings.shoutyDescription)</span>"</span>)
+</code></pre><p>注意可打印的协议现在可以在CustomStringConvertible中调用，并且能在大多数Foundation对象中使用。有了协议扩展，你能更好的对大片系统或者你自定义的类进行扩展。你能编写一个统一的实现应用在一系列的类型之中，而不是在许多的类、结构体、枚举中添加很多的自定义代码。</p>
+<p>Swift团队已经在忙着做这个——即使你没有在Swift中使用过map或者filter，或许你听过他们将会把map和filter做成一个方法而不是全局函数。感谢协议扩展的力量，现在我们在集合类型中能够使用一系列例如map，filter，indexOf等更多的新的方法！</p>
+<pre><code><span class="keyword">let</span> numbers = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">10</span>, <span class="number">16</span>, <span class="number">42</span>, <span class="number">45</span>]
+
+// Swift <span class="number">1</span>
+find(filter(<span class="keyword">map</span>(numbers, { <span class="variable">$0</span> * <span class="number">2</span>}), { <span class="variable">$0</span> % <span class="number">3</span> == <span class="number">0</span> }), <span class="number">90</span>)
+
+// Swift <span class="number">2</span>
+numbers.<span class="keyword">map</span> { <span class="variable">$0</span> * <span class="number">2</span> }.filter { <span class="variable">$0</span> % <span class="number">3</span> == <span class="number">0</span> }.indexOf(<span class="number">90</span>) // returns <span class="number">2</span>
+</code></pre><p>感谢协议的一致性，你的Swift2代码能够变得更加简洁和可读性更强。在Swift1版本的时候，你需要到内部去查看理解发生了什么；在Swift版本2时，函数链将会更加清楚。</p>
+<p>我们可以利用面向协议编程的能量——查看<a href="https://developer.apple.com/videos/wwdc/2015/?id=408" target="_blank" rel="external">WWDC session on this topic</a>并且随时留意之后这个页面的教程和文章！</p>
+<h1 id="彩蛋">彩蛋</h1><p>现在已经有很多关于所有sessions的声明了，因此我只想快点强调一些东西：</p>
+<p>Objective-C generics-苹果已经开始给所有的Objective-C代码添加注释了，这样在Swift中键入的时候就能得到正确的可选性。配合Objective-C generics将持续给Swift开发者更好的键入提示。如果你希望得到一系列的UITouch对象或者一个数组或是字符串，那么正好现在你能得到的就是这些，而不是一个AnyObjects的集合。</p>
+<p>重命名语法 - println仅仅只用了一年，现在我们又用回了原始的print，现在的print有一个默认的第二个参数，通过设置true来标明是打印新的一行还是不换行。使用do关键字能专注于异常处理的范围，do-while循环变成了repeat-while。同样的，许多协议的命名也发生了改变，例如Printable变成了CustomStringConvertible。</p>
+<p>迁移 - 有这么多的小的语法改变，你要怎么对代码库进行更新喃？从Swift1到2的迁移将会帮我们把东西升级成最新的标准以及语法的改变。这个迁移甚至能智能的使用新的异常处理升级的你的代码以及升级的你的文档库评论到新的格式风格！</p>
+<p>开源！- 对我们来说最振奋的新闻就是Swift2将在秋季进行开源。似乎这将使Swift不仅仅只是iOS开发者使用，学习Swift也变得越来越重要。另外，这将是一个了解底层甚至为开源贡献并将你的名字写在Swift编译历史中的巨大机会。;]</p>
+<h1 id="之后做什么？">之后做什么？</h1><p>这些只是在Swift发布东西中选取了一些，想看全部的细节可以查看<a href="https://developer.apple.com/videos/wwdc2015/" target="_blank" rel="external">WWDC session videos</a>和更新好了的<a href="https://itunes.apple.com/us/book/swift-programming-language/id1002622538?mt=11&amp;uo=8&amp;at=11ld4k" target="_blank" rel="external">Swift Programming Language book</a>。</p>
+<p>如果还有人记得Swift最初的beta版和1.0发布之后的体积变化，这次体积当然也会很大的变化。我们团队将持续前沿更新，所以随时关注我们的教程，书籍公告，和视频吧，我们将带来更激动人心的改变。</p>
+<p>对于Swift2你最期待的是什么？你希望我们最快更新的是什么？在评论区中留下你们的想法！</p>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+            <a href="/Script/Bat-Basic-Command/" id="art-left" class="art-right">
+                <span class="next-title">
+                    bat的一些基础语法<i class="iconfont icon-right"></i> 
+                </span>
+            </a>
+        
+        
+            <a href="/iOS/iOS-Automatic-Packing/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>iOS使用脚本打包程序
+                </span>
+            </a>
+        
+    </nav>
+
+        
+    <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+    <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+			var gitment = new Gitment({
+			owner: 'ClavisJ',
+			repo: 'HexoComment',
+			oauth: {
+			client_id: '4608bfda19fb959ee598',
+			client_secret: '87b14f10d2de221a07d19bc1f1222cd05a3f54ce',
+			},
+			})
+			gitment.render('post-comments')
+		</script>
+    </div>
+
+
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+            <a href="https://github.com/ClavisJ" class="iconfont icon-github" title="github"></a>
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+            <a href="https://weibo.com//u/2833253020" class="iconfont icon-weibo" title="weibo"></a>
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+            <a href="mailto:ClavisJJ@gmail.com" target="_blank" class="iconfont icon-mail" title="mail"></a>
+        
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>Clavis JJ</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js" type="text/javascript"></script>
+<script src="/script/search.js" type="text/javascript"></script>
+
+    <script src="/lightbox/js/lightbox.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.mobileHeader();
+    Nlvi.back2top();
+    Nlvi.smoothScroll();
+    Nlvi.onView();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward();
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+    
+</body>
+</html>

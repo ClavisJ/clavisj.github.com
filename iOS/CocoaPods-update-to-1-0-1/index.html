@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> 升级 CocoaPods 到1.0.1 · ClavisBlog </title>
+    <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="browsermode" content="application">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ClavisBlog">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="msapplication-navbutton-color" content="#666666">
+<meta name= "format-detection" content="telephone=no" />
+<meta name="keywords" content="nlvi, Nlvi" />
+
+
+
+
+
+<link rel="stylesheet" href="/style/style.css" type="text/css">
+<script src="/script/jquery.min.js" type="text/javascript"></script>
+<script>
+    var CONFIG = {
+        title: "ClavisBlog",
+        author: "Clavis JJ",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css" type="text/css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css" type="text/css">
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud-mask"></div>  
+<div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        <a href="/tags/swift2/" style="font-size: 14px;">swift2</a>
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">ClavisBlog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>归档</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/read">
+                    <span>读书</span>
+                    
+                        <span class="menu-item-label">read</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+</header>
+<div class="mobile-header">
+    <div class="mobile-header-body">
+        <div class="mobile-header-list">
+            
+            
+                <div class="mobile-nav-item">
+                    <a href="/">
+                        <span>文章</span>
+                        
+                            <span class="menu-item-label">article</span>
+                        
+                    </a>
+                </div>
+            
+            
+            
+                <div class="mobile-nav-item">
+                    <a href="/archives">
+                        <span>归档</span>
+                        
+                            <span class="menu-item-label">archives</span>
+                        
+                    </a>
+                </div>
+            
+            
+            
+                <div class="mobile-nav-item">
+                    <a href="/read">
+                        <span>读书</span>
+                        
+                            <span class="menu-item-label">read</span>
+                        
+                    </a>
+                </div>
+            
+            
+        </div>
+    </div>
+    <div class="mobile-header-nav">
+        <div class="mobile-header-item" id="mobile-left">
+            <div class="header-menu-item">
+                <span class="header-menu-line"></span>
+            </div>
+        </div>
+        <h1 class="mobile-header-title">
+            <a href="/">ClavisBlog</a>
+        </h1>
+        <div class="mobile-header-item"></div>
+    </div>
+</div>
+
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2016年7月13日</span>
+                
+                
+                    <span class="post-category"><a href="/categories/iOS/">iOS</a></span>
+                
+                
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                升级 CocoaPods 到1.0.1
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <p>Pods发布了 1.0 啦，虽然现在的 0.39 也能用，不过想尝尝鲜，来记一波升级步骤</p>
+<a id="more"></a>
+<h4 id="环境信息">环境信息</h4><p>OS X El Capitan 10.11.5</p>
+<h2 id="1-切换源">1.切换源</h2><pre><code>gem sources -r https://rubygems.org/
+gem sources -a https://gems.ruby-china.org/
+
+$ gem sources -l
+<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> CURRENT SOURCES <span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>
+
+https://gems.ruby-china.org/
+</code></pre><h2 id="2-在线更新_gem">2.在线更新 gem</h2><p>在线自动更新的命令如下:</p>
+<pre><code>$ sudo gem <span class="operator"><span class="keyword">update</span> <span class="comment">--system</span>
+<span class="keyword">Password</span>:
+Updating rubygems-<span class="keyword">update</span>
+Fetching: rubygems-<span class="keyword">update</span>-<span class="number">2.6</span><span class="number">.6</span>.gem (<span class="number">100</span>%)
+<span class="keyword">ERROR</span>:  <span class="keyword">While</span> executing gem ... (Errno::EPERM)
+    Operation <span class="keyword">not</span> permitted - /usr/<span class="keyword">bin</span>/update_rubygems</span>
+</code></pre><p>我更新失败了，好像是由于<code>EL Capitan</code>系统限制了写入权限，要调整有点麻烦，再来试下指定版本更新，结果也失败了😂</p>
+<pre><code>$ sudo gem <span class="operator"><span class="keyword">update</span> <span class="comment">--system 2.6.1</span>
+<span class="keyword">Password</span>:
+Updating rubygems-<span class="keyword">update</span>
+Fetching: rubygems-<span class="keyword">update</span>-<span class="number">2.6</span><span class="number">.1</span>.gem (<span class="number">100</span>%)
+<span class="keyword">ERROR</span>:  <span class="keyword">While</span> executing gem ... (Errno::EPERM)
+    Operation <span class="keyword">not</span> permitted - /usr/<span class="keyword">bin</span>/update_rubygems</span>
+</code></pre><h2 id="3-手动更新_gem">3.手动更新 gem</h2><p>那既然在线不行，于是我尝试手动更新：</p>
+<ol>
+<li>在这里<a href="https://rubygems.org/pages/download#formats" target="_blank" rel="external">下载</a></li>
+<li>解压并cd到对应目录</li>
+<li>用命令<code>sudo ruby setup.rb</code>进行安装</li>
+<li>最后你可以运行<code>$ gem -v</code>来查看下版本，我的是2.6.6 </li>
+</ol>
+<p>更新成功！  </p>
+<h2 id="4-更新_CocosPods">4.更新 CocosPods</h2><p>接着来更新 CocosPods， 可以运行和安装时一样的命令：</p>
+<pre><code>$ gem <span class="keyword">install</span> cocoapods
+</code></pre><p>然而，我还是报错：</p>
+<pre><code>$ gem <span class="operator"><span class="keyword">install</span> cocoapods
+<span class="keyword">ERROR</span>:  <span class="keyword">While</span> executing gem ... (Gem::RemoteFetcher::UnknownHostError)
+    <span class="keyword">no</span> such <span class="keyword">name</span> (https://ruby.taobao.org/<span class="keyword">quick</span>/Marshal<span class="number">.4</span><span class="number">.8</span>/cocoapods-<span class="number">1.0</span><span class="number">.1</span>.gemspec.rz)</span>
+</code></pre><p>在浏览器能访问这个地址，还能下载，我真的是…… 然后继续折腾，不知道是不是源的问题，尝试指定源安装：</p>
+<pre><code>gem install cocoapods --<span class="keyword">source</span> http:<span class="comment">//rubygems.org</span>
+</code></pre><p>还是失败= =|||…. 不知道是不是源有问题，查到 Ruby 社区里面有篇<a href="https://ruby-china.org/topics/13086" target="_blank" rel="external">帖子</a>，提到了一个有点不同的加源命令，继续try</p>
+<pre><code>$ gem sources --remove <span class="string">https:</span><span class="comment">//ruby.taobao.org/</span>
+<span class="string">https:</span><span class="comment">//ruby.taobao.org/ removed from sources</span>
+ClavisJ-<span class="string">Pro:</span>~ ClavisJ$ gem sources --add <span class="string">https:</span><span class="comment">//ruby.taobao.org/ -V</span>
+Getting SRV record <span class="string">failed:</span> DNS result has no information <span class="keyword">for</span> _rubygems._tcp.ruby.taobao.org
+GET <span class="string">https:</span><span class="comment">//ruby.taobao.org/specs.4.8.gz</span>
+<span class="number">302</span> Moved Temporarily
+GET <span class="string">https:</span><span class="comment">//rubygems-china.oss-cn-hangzhou.aliyuncs.com/specs.4.8.gz</span>
+<span class="number">200</span> OK
+<span class="string">https:</span><span class="comment">//ruby.taobao.org/ added to sources</span>
+</code></pre><p>其实两个安装源是一样的，帖子中有说网络问题，我把VPN断咯，再来继续指定更新 cocoaPods，就不报访问不到的Error了</p>
+<pre><code>$ sudo gem update cocoapods
+Password:
+Updating installed gems
+Updating cocoapods
+Fetching: cocoapods-core-<span class="number">1.0</span><span class="number">.1</span>.gem (<span class="number">100</span>%)
+Successfully installed cocoapods-core-<span class="number">1.0</span><span class="number">.1</span>
+Fetching: cocoapods-deintegrate-<span class="number">1.0</span><span class="number">.0</span>.gem (<span class="number">100</span>%)
+Successfully installed cocoapods-deintegrate-<span class="number">1.0</span><span class="number">.0</span>
+Fetching: cocoapods-downloader-<span class="number">1.1</span><span class="number">.0</span>.gem (<span class="number">100</span>%)
+Successfully installed cocoapods-downloader-<span class="number">1.1</span><span class="number">.0</span>
+Fetching: cocoapods-plugins-<span class="number">1.0</span><span class="number">.0</span>.gem (<span class="number">100</span>%)
+Successfully installed cocoapods-plugins-<span class="number">1.0</span><span class="number">.0</span>
+Fetching: cocoapods-search-<span class="number">1.0</span><span class="number">.0</span>.gem (<span class="number">100</span>%)
+Successfully installed cocoapods-search-<span class="number">1.0</span><span class="number">.0</span>
+Fetching: cocoapods-stats-<span class="number">1.0</span><span class="number">.0</span>.gem (<span class="number">100</span>%)
+Successfully installed cocoapods-stats-<span class="number">1.0</span><span class="number">.0</span>
+Fetching: cocoapods-trunk-<span class="number">1.0</span><span class="number">.0</span>.gem (<span class="number">100</span>%)
+Successfully installed cocoapods-trunk-<span class="number">1.0</span><span class="number">.0</span>
+Fetching: cocoapods-<span class="keyword">try</span>-<span class="number">1.1</span><span class="number">.0</span>.gem (<span class="number">100</span>%)
+Successfully installed cocoapods-<span class="keyword">try</span>-<span class="number">1.1</span><span class="number">.0</span>
+Fetching: molinillo-<span class="number">0.4</span><span class="number">.5</span>.gem (<span class="number">100</span>%)
+Successfully installed molinillo-<span class="number">0.4</span><span class="number">.5</span>
+Fetching: cocoapods-<span class="number">1.0</span><span class="number">.1</span>.gem (<span class="number">100</span>%)
+ERROR:  While executing gem ... (Errno::EPERM)
+    Operation not permitted - /usr/bin/pod
+</code></pre><p>这次能Fetch到安装需要的东西了，但是卡在了最后一步，还是没有写入权限，看来权限这个坑是绕不过去了，继续查资料，最后终于在<a href="http://stackoverflow.com/questions/33077977/cocoa-pods-not-updating-pods-on-el-capitan" target="_blank" rel="external">stackoverflow</a>上找到解决方案咯，如下</p>
+<pre><code>$ sudo gem install -n /usr/local/bin cocoapods
+Successfully installed cocoapods-<span class="number">1.0</span><span class="number">.1</span>
+Parsing documentation <span class="keyword">for</span> cocoapods-<span class="number">1.0</span><span class="number">.1</span>
+Installing ri documentation <span class="keyword">for</span> cocoapods-<span class="number">1.0</span><span class="number">.1</span>
+<span class="number">1</span> gem installed
+</code></pre><p>看到安装成功的提示，简直太开心了，真的是好折腾，嘛，生命不息，折腾不止！~(≧▽≦)/~</p>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+            <a href="/Swift/Map-And-Flatmap-in-Swift/" id="art-left" class="art-right">
+                <span class="next-title">
+                    Swift 中 map & flatmap 的使用<i class="iconfont icon-right"></i> 
+                </span>
+            </a>
+        
+        
+            <a href="/Essay/ThreeBody-BookReview/" id="art-right" class="art-left">
+                <span class="prev-title"> 
+                    <i class="iconfont icon-left"></i>关于《三体》的一点纪念
+                </span>
+            </a>
+        
+    </nav>
+
+        
+    <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+    <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+			var gitment = new Gitment({
+			owner: 'ClavisJ',
+			repo: 'HexoComment',
+			oauth: {
+			client_id: '4608bfda19fb959ee598',
+			client_secret: '87b14f10d2de221a07d19bc1f1222cd05a3f54ce',
+			},
+			})
+			gitment.render('post-comments')
+		</script>
+    </div>
+
+
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+            <a href="https://github.com/ClavisJ" class="iconfont icon-github" title="github"></a>
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+            <a href="https://weibo.com//u/2833253020" class="iconfont icon-weibo" title="weibo"></a>
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+            <a href="mailto:ClavisJJ@gmail.com" target="_blank" class="iconfont icon-mail" title="mail"></a>
+        
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>Clavis JJ</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js" type="text/javascript"></script>
+<script src="/script/search.js" type="text/javascript"></script>
+
+    <script src="/lightbox/js/lightbox.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.mobileHeader();
+    Nlvi.back2top();
+    Nlvi.smoothScroll();
+    Nlvi.onView();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward();
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+    
+</body>
+</html>

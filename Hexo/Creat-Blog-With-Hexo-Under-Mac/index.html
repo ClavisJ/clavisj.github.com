@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title> Mac平台下如何搭建Hexo博客 · ClavisBlog </title>
+    <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="browsermode" content="application">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ClavisBlog">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="msapplication-navbutton-color" content="#666666">
+<meta name= "format-detection" content="telephone=no" />
+<meta name="keywords" content="nlvi, Nlvi" />
+
+
+
+
+
+<link rel="stylesheet" href="/style/style.css" type="text/css">
+<script src="/script/jquery.min.js" type="text/javascript"></script>
+<script>
+    var CONFIG = {
+        title: "ClavisBlog",
+        author: "Clavis JJ",
+        lightbox: true,
+        animate: true
+    }
+</script>
+
+
+
+    <link rel="stylesheet" href="/lightbox/css/lightbox.min.css" type="text/css">
+
+
+
+
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css" type="text/css">
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-inner"></div>
+</div>
+    <div class="body">
+    <div class="tagcloud-mask"></div>  
+<div class="tagcloud" id="tagcloud">
+    <div class="tagcloud-inner">
+        <a href="/tags/swift2/" style="font-size: 14px;">swift2</a>
+    </div>
+</div>
+    <header class="header" id="header">
+    <div class="title syuanpi tvIn">
+    <div class="table">
+        <div class="connect">
+            <div class="connect-inner">
+                <span><a href="/">ClavisBlog</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <nav class="main-nav syuanpi tvIn">
+<div class="table">
+
+    <ul class="menu">
+        
+        
+        
+            <li class="menu-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/archives">
+                    <span>归档</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </li>
+        
+        
+        
+            <li class="menu-item">
+                <a href="/read">
+                    <span>读书</span>
+                    
+                        <span class="menu-item-label">read</span>
+                    
+                </a>
+            </li>
+        
+        
+    </ul>
+
+</div>
+</nav>
+</header>
+<div class="mobile-header">
+    <div class="mobile-header-body">
+        <div class="mobile-header-list">
+            
+            
+                <div class="mobile-nav-item">
+                    <a href="/">
+                        <span>文章</span>
+                        
+                            <span class="menu-item-label">article</span>
+                        
+                    </a>
+                </div>
+            
+            
+            
+                <div class="mobile-nav-item">
+                    <a href="/archives">
+                        <span>归档</span>
+                        
+                            <span class="menu-item-label">archives</span>
+                        
+                    </a>
+                </div>
+            
+            
+            
+                <div class="mobile-nav-item">
+                    <a href="/read">
+                        <span>读书</span>
+                        
+                            <span class="menu-item-label">read</span>
+                        
+                    </a>
+                </div>
+            
+            
+        </div>
+    </div>
+    <div class="mobile-header-nav">
+        <div class="mobile-header-item" id="mobile-left">
+            <div class="header-menu-item">
+                <span class="header-menu-line"></span>
+            </div>
+        </div>
+        <h1 class="mobile-header-title">
+            <a href="/">ClavisBlog</a>
+        </h1>
+        <div class="mobile-header-item"></div>
+    </div>
+</div>
+
+    <div class="container">
+        <main class="main" id="main">
+            
+    
+    <article class="post">
+        <header class="post-header">
+            <div class="post-time syuanpi riseIn-light back-1">
+                <span>2015年11月1日</span>
+                
+                
+                    <span class="post-category"><a href="/categories/Hexo/">Hexo</a></span>
+                
+                
+            </div>
+            <h1 class="post-title syuanpi riseIn-light back-2">
+            
+                Mac平台下如何搭建Hexo博客
+            
+            </h1>
+            
+                
+            
+        </header>
+        <div class="post-content syuanpi riseIn-light back-3">
+            
+                <h2 id="前言">前言</h2><p>终于搭建好了自己的博客，在此分享下建站的全过程，希望能对大家有所帮助。</p>
+<a id="more"></a>
+<h4 id="环境信息">环境信息</h4><p>Mac 10.10.5 Xcode 7.0.1</p>
+<h1 id="一、为什么选择Hexo">一、为什么选择Hexo</h1><p>前几年搭建博客的话，大家第一选择都是使用WordPress，而当我自己搭建的时候才发现，现在有一堆博客框架可以选择，Octopress、Ghost、Kelly、Jelly、Hexo等等等！天啊噜，我严重觉得自己有选择恐惧症。</p>
+<p>除了稍微用过wordPress外，其余的东西我并没有用过，于是查咯好多资料纠结选哪个博客。这些博客可以简单的分为两类，需要服务器的，不需要服务器的，像WordPress，Ghost这样就是需要服务器的。而其他都是一堆静态博客，Jelly(像黑客一样写博客)，Octopress（Jekyll的再开发）, Hexo（Node.js写的，编译速度比前两者快），本质都是一样的，如果你还想深入的体会各个之间的区别，建议还是自己都用一下才比较明了。</p>
+<p>最后选择了Hexo，主要是因为感觉会geek一点（不要笑），而且编译速度快，是Node.js写的，感觉会比较亲切，支持MarkDown，并且生成静态页面就懒得搞后台了。</p>
+<h1 id="二、安装Hexo">二、安装Hexo</h1><p>那么来讲讲Hexo的安装，他需要Git和Node.js的支持，再用nvm来安装hexo。</p>
+<h3 id="1-安装Git">1.安装Git</h3><p>我是直接安装的Xcode，Xcode安装完成之后会自带终端和Git，可以代码<code>git --version</code>查看Git版本。</p>
+<h3 id="2-安装Node-js">2.安装Node.js</h3><p>安装Node.js有多种方法，由于Mac自带ruby，可以打算安装homebrew（专门用于安装open source）工具，再用homebrew安装Node.js，但是我找了好多homebrew的连接都是404= =|||，后来就放弃这个方法了，而是直接从github上面拷贝下来再安装。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/joyent/node.git</span><br><span class="line"><span class="keyword">cd</span> node</span><br><span class="line">./configure</span><br><span class="line"><span class="keyword">make</span></span><br><span class="line">sudo <span class="keyword">make</span> install</span><br></pre></td></tr></table></figure>
+<p>从github上面拷贝下来之后记得查看下当前的分支是不是在master上，不是的话记得切换分支。</p>
+<h3 id="3-安装Hexo">3.安装Hexo</h3><p>使用npm工具安装Hexo</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo</span><br><span class="line">sudo npm <span class="keyword">install</span> <span class="comment">--unsafe-perm --verbose -g hexo</span></span></span><br></pre></td></tr></table></figure>
+<p>这里的第一句命令要么加上-g是全局安装，去掉-g是把模块安装到当前目录，全局安装是安装到root目录下的，在root目录下安装文件都需要root权限，所以要加上sudo。那么至此Hexo博客就搭建完成了！</p>
+<h1 id="三、Hexo基本配置及使用">三、Hexo基本配置及使用</h1><p>关于Hexo的目录结构以及查看完整的配置的话，还是建议到<a href="https://hexo.io/docs/" target="_blank" rel="external">官网</a>上去看，英文不好的同学可以点击<a href="http://www.liuzhixiang.com/hexo_site_cn/docs/index.html" target="_blank" rel="external">这里</a>。</p>
+<h3 id="1-初始化Hexo">1.初始化Hexo</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="tag">&lt;<span class="title">folderPath</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>也可以cd到目标目录，然后执行<code>hexo init</code>。</p>
+<h3 id="2-生成静态页面">2.生成静态页面</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">ge</span><span class="label">nerate</span></span><br></pre></td></tr></table></figure>
+<p>命令必须在init目录下执行</p>
+<h3 id="3-本地启动Hexo">3.本地启动Hexo</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">server</span></span><br></pre></td></tr></table></figure>
+<p>这时大家访问<code>http://localhost:4000</code>就可以看到自己的网站啦！</p>
+<h3 id="4-写文章">4.写文章</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> [layout] <span class="string">"postName"</span> <span class="preprocessor">#新建文章</span></span><br></pre></td></tr></table></figure>
+<p>其中layout是可选参数，默认值为post,其余layout在scaffolds中查看。</p>
+<h3 id="5-关联GitHub">5.关联GitHub</h3><p>需要注册一个GitHub账号，然后创建一个repository，注意仓库名称是特定的，比如我的GitHub账号是ClavisJ，那么对应的仓库名称是ClavisJ.github.io。</p>
+<p>然后编辑_config.yml文件，修改最后的deploy的配置，将仓库地址换成你自己的地址。tip：这里的配置和Hexo的版本有关，3.0前后的会有一些差别，大家注意一下。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/ClavisJ/clavisj.github.com.git</span></span><br></pre></td></tr></table></figure>
+<p>将下来就可以执行部署命令了(tip:有些新用户可能需要配置ssh，可以查看<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">官方配置说明</a>)</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> clean  <span class="comment"># 发布前最好清理一下</span></span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>现在访问clavisj.github.io就可以看到你自己搭建的博客了。</p>
+<h1 id="四、小结">四、小结</h1><p>总的来说搭建Hexo博客还是比较简单的，用起来也比较顺手，大家有兴趣可以自己搭建一个，想要独立的域名的话，也可以在Godaddy上面买一个，还可以用个图床存储图片，将博客从GitHub移到GitCafe上提升访问速度，做做SEO优化，过滤下垃圾评论，做下RSS订阅，自己修改修改主题什么的，这些后期实现了的话在来和大家分享吧: )</p>
+<p>当然搭建博客，选择什么博客平台都不是重点，最重要的是要自己坚持写作，不断分享干货，不断提升自己技术，与君共勉。</p>
+<h3 id="参考资料">参考资料</h3><p><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></p>
+<p><a href="http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></p>
+
+            
+        
+        </div>
+        
+            
+            
+        
+    </article>
+    
+        
+    <nav class="article-page">
+        
+            <a href="/iOS/iOS-Automatic-Packing/" id="art-left" class="art-right">
+                <span class="next-title">
+                    iOS使用脚本打包程序<i class="iconfont icon-right"></i> 
+                </span>
+            </a>
+        
+        
+    </nav>
+
+        
+    <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+    <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+		<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+		<script>
+			var gitment = new Gitment({
+			owner: 'ClavisJ',
+			repo: 'HexoComment',
+			oauth: {
+			client_id: '4608bfda19fb959ee598',
+			client_secret: '87b14f10d2de221a07d19bc1f1222cd05a3f54ce',
+			},
+			})
+			gitment.render('post-comments')
+		</script>
+    </div>
+
+
+    
+
+
+        </main>
+        <footer class="footer syuanpi fadeIn" id="footer">
+    <hr>
+    <div class="footer-wrapper">
+        <div class="left">
+            <div class="contact-icon">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+            <a href="https://github.com/ClavisJ" class="iconfont icon-github" title="github"></a>
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+            <a href="https://weibo.com//u/2833253020" class="iconfont icon-weibo" title="weibo"></a>
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+            <a href="mailto:ClavisJJ@gmail.com" target="_blank" class="iconfont icon-mail" title="mail"></a>
+        
+    
+</div>
+        </div>
+        <div class="right">
+            <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>1970 ~ 2017</span>
+        <span>❤</span>
+        <span>Clavis JJ</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+</div>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="/script/nlvi.js" type="text/javascript"></script>
+<script src="/script/search.js" type="text/javascript"></script>
+
+    <script src="/lightbox/js/lightbox.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function(){
+    document.body.addEventListener('touchstart', function () {});
+    $('.progress').hide();
+    $('.body').show();
+    Nlvi.tagcloud();
+    Nlvi.mobileHeader();
+    Nlvi.back2top();
+    Nlvi.smoothScroll();
+    Nlvi.onView();
+    Nlvi.showToc();
+    Nlvi.showComments();
+    Nlvi.showReward();
+
+    !CONFIG.animate && Nlvi.offAnimate();
+    CONFIG.lightbox && Nlvi.onPicBox();
+})
+</script>
+    </div>
+    
+        
+    
+    <div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+    
+</body>
+</html>
